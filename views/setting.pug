@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1= title
+    form(name="add-estimation", method="post")
+        div.input
+            span.label Choisissez la langue du site
+            select(class="dropdown" name='dropDown', id='')
+                each val in ['Français' , 'Anglais' , 'Allemand']
+                    option=val
+        div.actions
+            input(type="submit", value="Next Step" class="btn btn-primary")
