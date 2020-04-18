@@ -23,8 +23,6 @@ console.log(res.app.get('site-name'));
 router.post('/', function (req, res) {
     var site = res.app.get('site-name');
     var siteTemplate = Number(res.app.get('site-template'));
-    console.log('gimme dis : '+ themes[siteTemplate].url.toString());
-    console.log('gimme dis : '+ site);
 
     exec(`cd ~/Desktop && hugo new site ${site} && cd ~/Desktop/${site} && git init && 
     git submodule add ${themes[siteTemplate].url.toString()} themes/${themes[siteTemplate].name} &&
