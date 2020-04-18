@@ -2,14 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-    res.render('theme', {
-        title: 'choix du theme',
-        name: 'theme',
-        style: 'theme.css'
+    res.render('result', {
+        title: 'Votre site est prêt',
+        name: 'result',
     })
 });
 router.post('/', function (req, res) {
-    console.log("clicked");
-    res.redirect('setting');
-    });
+    res.redirect('/');
+});
 module.exports = router;

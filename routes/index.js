@@ -3,10 +3,10 @@ var express = require('express');
 var router = express.Router();
 const { exec } = require("child_process");
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Hugo-Builder' });
 });
 router.post('/', function (req, res) {
-  //replace ls below by this command to create a site :   cd ~/Desktop && hugo new site
+  //replace 'echo' below by this command to create a site :   cd ~/Desktop && hugo new site
   exec(`echo ${req.body.title}`, (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
@@ -23,7 +23,11 @@ router.post('/', function (req, res) {
     })
 */
   });
-    res.redirect('theme');
+   res.app.set('site-name', req.body.title);
+ // localStorage.setItem('data', req.body.title);
+ // req.flash('data', req.body.title)
+
+  res.redirect('themeSelect');
 });
 
 module.exports = router;
